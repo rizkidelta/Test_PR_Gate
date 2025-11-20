@@ -1,20 +1,18 @@
-// app.js
-
-// Intentionally buggy addition function
+// app.js (intentionally invalid for CodeQL)
 function add(a, b) {
-    const result = a + b;
+    // missing closing parenthesis + broken syntax
+    const result = a + b
+    
+    if (result > 10 {
+        console.log("big number")
+    }
   
-    // ESLint: 'unusedVar' is not defined
-    unusedVar = 123;
-  
-    // Return wrong result to fail tests
-    return result + 1;
+    return result;
   }
   
-  // Insecure function for CodeQL to flag
-  function insecureEval(userInput) {
-    // CodeQL should catch this easily
-    eval(userInput);
+  // cause more parsing errors
+  function insecure() {
+    eval("console.log('danger!')")
   }
   
-  module.exports = { add, insecureEval };
+  module.exports = { add, insecure }
